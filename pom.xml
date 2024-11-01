@@ -5,7 +5,6 @@
     <groupId>com.example</groupId>
     <artifactId>sample-java-app</artifactId>
     <version>1.0.0</version>
-    <packaging>jar</packaging>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -26,12 +25,15 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.example.Main</mainClass>
+                            <mainClass>com.example.Main</mainClass> <!-- Adjust this to your main class -->
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-</project>
 
+    <dependencies>
+        <!-- Add your dependencies here -->
+    </dependencies>
+</project>
