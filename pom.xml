@@ -2,53 +2,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <!-- Basic Project Information -->
+    
     <groupId>com.example</groupId>
     <artifactId>sample-java-app</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>Sample Java App</name>
-    <description>A simple Java application for ECS deployment</description>
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
 
-    <!-- Build Configuration -->
-    <build>
-        <plugins>
-            <!-- Maven Compiler Plugin for Java 11 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <source>11</source>
-                    <target>11</target>
-                </configuration>
-            </plugin>
-
-            <!-- Maven Jar Plugin to Package the App as a JAR -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>com.example.Main</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
-    <!-- Dependencies (Add additional dependencies if needed) -->
     <dependencies>
-        <!-- Example dependency, remove if not needed -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.30</version>
-        </dependency>
+        <!-- Add any dependencies your application needs here -->
     </dependencies>
 </project>
