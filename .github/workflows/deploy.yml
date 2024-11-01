@@ -17,7 +17,6 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '11'
-        distribution: 'temurin' # Specify the JDK distribution
 
     - name: Build with Maven
       run: mvn clean package
@@ -34,7 +33,8 @@ jobs:
         AWS_REGION: ${{ secrets.AWS_REGION }}
         AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
       run: |
-        aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+        aws ecr get-login-password --region $AWS_REGION \
+          | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
 
     - name: Build and tag Docker image
       env:
@@ -42,9 +42,14 @@ jobs:
         AWS_REGION: ${{ secrets.AWS_REGION }}
         ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
       run: |
+        # Ensure the JAR file exists
+        if [ ! -f target/sample-java-app-1.0.0.jar ]; then
+          echo "JAR file not found!"
+          exit 1
+        fi
+
         IMAGE_URI="$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:latest"
         docker build -t $IMAGE_URI .
-        docker tag $IMAGE_URI $IMAGE_URI
 
     - name: Push Docker image to Amazon ECR
       env:
