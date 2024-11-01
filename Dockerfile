@@ -5,7 +5,7 @@ FROM openjdk:11-jre-slim
 LABEL maintainer="Your Name <your.email@example.com>"
 
 # Copy the jar file from the target directory to the container
-COPY target/sample-java-app-1.0.0.jar /app/app.jar  # Update the JAR name if necessary
+COPY target/sample-java-app-1.0.0.jar /app/app.jar
 
 # Expose the application port
 EXPOSE 8080
