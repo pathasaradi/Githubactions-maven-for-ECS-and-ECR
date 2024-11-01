@@ -2,10 +2,10 @@
 FROM openjdk:11-jre-slim
 
 # Add a label to the Docker image
-LABEL maintainer="challa <cparthasaradi123@gmail.com>"
+LABEL maintainer="Your Name <your.email@example.com>"
 
 # Copy the jar file from the target directory to the container
-COPY target/your-app-name-1.0.0.jar /app/app.jar
+COPY target/sample-java-app-1.0.0.jar /app/app.jar  # Update the JAR name if necessary
 
 # Expose the application port
 EXPOSE 8080
